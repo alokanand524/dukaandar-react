@@ -1,1 +1,134 @@
-# dukaandar-react
+# VendorHub - React Vendor Management Platform
+
+A complete vendor management platform built with React.js, featuring a modern dashboard, product management, order tracking, and customer management.
+
+## Features
+
+- 🏪 **Landing Page** - Marketing site with features and pricing
+- 🔐 **Authentication** - Login and registration with plan selection
+- 📊 **Dashboard** - Overview with analytics and quick actions
+- 📦 **Product Management** - Add, edit, and track inventory
+- 🛒 **Order Management** - Process and track customer orders
+- 👥 **Customer Management** - Manage customer relationships
+- 📱 **Responsive Design** - Works on all devices
+- 🎨 **Modern UI** - Built with Tailwind CSS and shadcn/ui components
+
+## Tech Stack
+
+- **React 18** - Frontend framework
+- **React Router DOM** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Beautiful icons
+- **Radix UI** - Accessible UI primitives
+- **Class Variance Authority** - Component variants
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 16+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+\`\`\`bash
+git clone <repository-url>
+cd vendor-saas-react
+\`\`\`
+
+2. Install dependencies:
+\`\`\`bash
+npm install
+\`\`\`
+
+3. Start the development server:
+\`\`\`bash
+npm start
+\`\`\`
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Available Scripts
+
+- `npm start` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm test` - Launches the test runner
+- `npm run eject` - Ejects from Create React App (one-way operation)
+
+## Project Structure
+
+\`\`\`
+src/
+├── components/          # Reusable UI components
+│   ├── ui/             # shadcn/ui components
+│   ├── DashboardLayout.js
+│   ├── Sidebar.js
+│   └── DashboardHeader.js
+├── pages/              # Page components
+│   ├── LandingPage.js
+│   ├── TrialPage.js
+│   ├── LoginPage.js
+│   ├── RegisterPage.js
+│   ├── Dashboard.js
+│   ├── Products.js
+│   ├── Orders.js
+│   └── Customers.js
+├── lib/                # Utility functions
+│   └── utils.js
+├── App.js              # Main app component with routing
+├── App.css             # Global styles
+└── index.js            # App entry point
+\`\`\`
+
+## Routes
+
+- `/` - Landing page
+- `/trial` - Free trial signup
+- `/login` - User login
+- `/register` - Registration with plan selection
+- `/dashboard` - Main dashboard
+- `/dashboard/products` - Product management
+- `/dashboard/orders` - Order management
+- `/dashboard/customers` - Customer management
+
+## Customization
+
+### Styling
+The project uses Tailwind CSS for styling. You can customize the design system by modifying:
+- `tailwind.config.js` - Tailwind configuration
+- `src/App.css` - Global styles and CSS variables
+
+### Components
+UI components are built with Radix UI primitives and can be found in `src/components/ui/`. These are fully customizable and follow the shadcn/ui design system.
+
+## Deployment
+
+### Build for Production
+\`\`\`bash
+npm run build
+\`\`\`
+
+This creates a `build` folder with optimized production files.
+
+### Deploy to Vercel
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically on every push
+
+### Deploy to Netlify
+1. Run `npm run build`
+2. Drag and drop the `build` folder to Netlify
+3. Or connect your GitHub repository for automatic deployments
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License.

@@ -1,23 +1,23 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Store, Check, X, Crown, Zap, Headphones, Globe, Shield } from "lucide-react"
-import Link from "next/link"
+import { Link } from "react-router-dom"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { Label } from "../components/ui/label"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
+import { Badge } from "../components/ui/badge"
+import { Store, Check, X, Crown, Zap } from "lucide-react"
 
 export default function RegisterPage() {
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
+  const [selectedPlan, setSelectedPlan] = useState(null)
   const [showRegistrationForm, setShowRegistrationForm] = useState(false)
 
   const plans = [
     {
       id: "basic",
       name: "Basic",
-      price: "₹299",
+      price: "$29",
       period: "/month",
       description: "Perfect for small businesses getting started",
       features: [
@@ -35,7 +35,7 @@ export default function RegisterPage() {
     {
       id: "professional",
       name: "Professional",
-      price: "₹699",
+      price: "$79",
       period: "/month",
       description: "Ideal for growing businesses",
       features: [
@@ -56,7 +56,7 @@ export default function RegisterPage() {
     {
       id: "enterprise",
       name: "Enterprise",
-      price: "₹1599",
+      price: "$199",
       period: "/month",
       description: "For large-scale operations",
       features: [
@@ -78,7 +78,7 @@ export default function RegisterPage() {
     },
   ]
 
-  const handlePlanSelect = (planId: string) => {
+  const handlePlanSelect = (planId) => {
     setSelectedPlan(planId)
     setShowRegistrationForm(true)
   }
@@ -91,7 +91,7 @@ export default function RegisterPage() {
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 pt-8">
-            <Link href="/" className="inline-flex items-center justify-center mb-4">
+            <Link to="/" className="inline-flex items-center justify-center mb-4">
               <Store className="h-8 w-8 text-blue-600" />
               <span className="ml-2 text-2xl font-bold text-gray-900">VendorHub</span>
             </Link>
@@ -150,22 +150,24 @@ export default function RegisterPage() {
                     <input type="checkbox" id="terms" className="mt-1" required />
                     <Label htmlFor="terms" className="text-sm leading-5">
                       I agree to the{" "}
-                      <Link href="#" className="text-blue-600 hover:underline">
+                      <a href="#" className="text-blue-600 hover:underline">
                         Terms of Service
-                      </Link>{" "}
+                      </a>{" "}
                       and{" "}
-                      <Link href="#" className="text-blue-600 hover:underline">
+                      <a href="#" className="text-blue-600 hover:underline">
                         Privacy Policy
-                      </Link>
+                      </a>
                     </Label>
                   </div>
 
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6">Start My Free Trial</Button>
+                  <Link to="/dashboard">
+                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6">Start My Free Trial</Button>
+                  </Link>
 
                   <div className="text-center">
                     <p className="text-sm text-gray-600">
                       Already have an account?{" "}
-                      <Link href="/login" className="text-blue-600 hover:underline font-medium">
+                      <Link to="/login" className="text-blue-600 hover:underline font-medium">
                         Sign in
                       </Link>
                     </p>
@@ -233,12 +235,12 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header */}
       <header className="px-4 lg:px-6 h-16 flex items-center border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <Link href="/" className="flex items-center justify-center">
+        <Link to="/" className="flex items-center justify-center">
           <Store className="h-8 w-8 text-blue-600" />
           <span className="ml-2 text-xl font-bold text-gray-900">VendorHub</span>
         </Link>
         <nav className="ml-auto flex items-center gap-4">
-          <Link href="/login">
+          <Link to="/login">
             <Button variant="ghost" size="sm">
               Sign In
             </Button>
@@ -261,7 +263,9 @@ export default function RegisterPage() {
             {plans.map((plan) => (
               <Card
                 key={plan.id}
-                className={`relative ${plan.color} ${plan.popular ? "ring-2 ring-blue-500 scale-105" : ""} hover:shadow-lg transition-all`}
+                className={`relative ${plan.color} ${
+                  plan.popular ? "ring-2 ring-blue-500 scale-105" : ""
+                } hover:shadow-lg transition-all`}
               >
                 {plan.popular && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600">
@@ -312,130 +316,8 @@ export default function RegisterPage() {
               </Card>
             ))}
           </div>
-
-          {/* Additional Information Sections */}
-          <div className="space-y-16">
-            {/* Features Comparison */}
-            <section className="bg-white rounded-2xl p-8 shadow-sm">
-              <h2 className="text-3xl font-bold text-center mb-8">Feature Comparison</h2>
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b">
-                      <th className="text-left py-4 px-4">Features</th>
-                      <th className="text-center py-4 px-4">Basic</th>
-                      <th className="text-center py-4 px-4">Professional</th>
-                      <th className="text-center py-4 px-4">Enterprise</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-sm">
-                    <tr className="border-b">
-                      <td className="py-3 px-4">Products</td>
-                      <td className="text-center py-3 px-4">100</td>
-                      <td className="text-center py-3 px-4">1,000</td>
-                      <td className="text-center py-3 px-4">Unlimited</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-3 px-4">Staff Accounts</td>
-                      <td className="text-center py-3 px-4">1</td>
-                      <td className="text-center py-3 px-4">5</td>
-                      <td className="text-center py-3 px-4">Unlimited</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-3 px-4">Analytics</td>
-                      <td className="text-center py-3 px-4">Basic</td>
-                      <td className="text-center py-3 px-4">Advanced</td>
-                      <td className="text-center py-3 px-4">Enterprise</td>
-                    </tr>
-                    <tr className="border-b">
-                      <td className="py-3 px-4">Support</td>
-                      <td className="text-center py-3 px-4">Email</td>
-                      <td className="text-center py-3 px-4">Priority</td>
-                      <td className="text-center py-3 px-4">24/7 Phone</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            {/* Why Choose VendorHub */}
-            <section className="text-center">
-              <h2 className="text-3xl font-bold mb-8">Why Choose VendorHub?</h2>
-              <div className="grid gap-8 md:grid-cols-3">
-                <div className="space-y-4">
-                  <div className="p-4 bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
-                    <Shield className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Secure & Reliable</h3>
-                  <p className="text-gray-600">Enterprise-grade security with 99.9% uptime guarantee</p>
-                </div>
-                <div className="space-y-4">
-                  <div className="p-4 bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
-                    <Headphones className="h-8 w-8 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold">24/7 Support</h3>
-                  <p className="text-gray-600">Get help whenever you need it from our expert team</p>
-                </div>
-                <div className="space-y-4">
-                  <div className="p-4 bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto">
-                    <Globe className="h-8 w-8 text-purple-600" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Global Scale</h3>
-                  <p className="text-gray-600">Sell worldwide with multi-currency and language support</p>
-                </div>
-              </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section className="bg-gray-50 rounded-2xl p-8">
-              <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
-              <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-                <div>
-                  <h3 className="font-semibold mb-2">Can I change my plan later?</h3>
-                  <p className="text-gray-600 text-sm">
-                    Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Is there a setup fee?</h3>
-                  <p className="text-gray-600 text-sm">
-                    No, there are no setup fees. You only pay the monthly subscription fee.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">What payment methods do you accept?</h3>
-                  <p className="text-gray-600 text-sm">
-                    We accept all major credit cards, PayPal, and bank transfers for annual plans.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Can I cancel anytime?</h3>
-                  <p className="text-gray-600 text-sm">
-                    Yes, you can cancel your subscription at any time. No long-term contracts required.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white mt-16">
-        <div className="flex items-center gap-2">
-          <Store className="h-6 w-6 text-blue-600" />
-          <span className="font-bold text-gray-900">VendorHub</span>
-        </div>
-        <p className="text-xs text-gray-600 sm:ml-4">© 2024 VendorHub. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
-            Terms of Service
-          </Link>
-          <Link href="#" className="text-xs hover:underline underline-offset-4 text-gray-600">
-            Privacy Policy
-          </Link>
-        </nav>
-      </footer>
     </div>
   )
 }

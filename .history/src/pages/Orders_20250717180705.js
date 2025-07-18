@@ -173,7 +173,7 @@ export default function Orders() {
                       </div>
                     </td>
                     <td className="py-3 px-4">{order.items} items</td>
-                    <td className="py-3 px-4">₹{order.total.toFixed(2)}</td>
+                    <td className="py-3 px-4">${order.total.toFixed(2)}</td>
                     <td className="py-3 px-4">
                       <Badge className={getStatusColor(order.status)}>{order.status}</Badge>
                     </td>

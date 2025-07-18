@@ -147,7 +147,7 @@ export default function Products() {
                     </td>
                     <td className="py-3 px-4">{product.sku}</td>
                     <td className="py-3 px-4">{product.category}</td>
-                    <td className="py-3 px-4">₹{product.price}</td>
+                    <td className="py-3 px-4">${product.price}</td>
                     <td className="py-3 px-4">{product.stock}</td>
                     <td className="py-3 px-4">
                       <Badge className={getStatusColor(product.status)}>{product.status}</Badge>

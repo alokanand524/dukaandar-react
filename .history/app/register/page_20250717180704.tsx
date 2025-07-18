@@ -17,7 +17,7 @@ export default function RegisterPage() {
     {
       id: "basic",
       name: "Basic",
-      price: "₹299",
+      price: "$29",
       period: "/month",
       description: "Perfect for small businesses getting started",
       features: [
@@ -35,7 +35,7 @@ export default function RegisterPage() {
     {
       id: "professional",
       name: "Professional",
-      price: "₹699",
+      price: "$79",
       period: "/month",
       description: "Ideal for growing businesses",
       features: [
@@ -56,7 +56,7 @@ export default function RegisterPage() {
     {
       id: "enterprise",
       name: "Enterprise",
-      price: "₹1599",
+      price: "$199",
       period: "/month",
       description: "For large-scale operations",
       features: [

@@ -1,15 +1,13 @@
-"use client"
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card"
+import { Badge } from "../components/ui/badge"
+import { Button } from "../components/ui/button"
 import { BarChart3, TrendingUp, Users, Package, ShoppingCart, DollarSign, AlertTriangle, Eye, Plus } from "lucide-react"
 
-export default function DashboardPage() {
+export default function Dashboard() {
   const stats = [
     {
       title: "Total Revenue",
-      value: "₹45,231.89",
+      value: "$45,231.89",
       change: "+20.1%",
       trend: "up",
       icon: DollarSign,
@@ -60,7 +58,7 @@ export default function DashboardPage() {
     { name: "Power Bank", stock: 2, sku: "PB-004" },
   ]
 
-  const getStatusColor = (status: string) => {
+  const getStatusColor = (status) => {
     switch (status) {
       case "Completed":
         return "bg-green-100 text-green-800"
@@ -99,7 +97,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{stat.value}</div>
-              <p className="text-xs text-muted-foreground flex items-center">
+              <p className="text-xs text-gray-500 flex items-center">
                 <TrendingUp className="mr-1 h-3 w-3 text-green-500" />
                 {stat.change} from last month
               </p>
@@ -138,7 +136,7 @@ export default function DashboardPage() {
                 <div key={index} className="flex items-center justify-between">
                   <div className="space-y-1">
                     <p className="text-sm font-medium leading-none">{order.customer}</p>
-                    <p className="text-sm text-muted-foreground">{order.id}</p>
+                    <p className="text-sm text-gray-500">{order.id}</p>
                   </div>
                   <div className="text-right space-y-1">
                     <p className="text-sm font-medium">{order.amount}</p>
@@ -171,7 +169,7 @@ export default function DashboardPage() {
                 <div key={index} className="flex items-center justify-between">
                   <div className="space-y-1">
                     <p className="text-sm font-medium leading-none">{product.name}</p>
-                    <p className="text-sm text-muted-foreground">SKU: {product.sku}</p>
+                    <p className="text-sm text-gray-500">SKU: {product.sku}</p>
                   </div>
                   <Badge variant="outline" className="text-orange-600 border-orange-200">
                     {product.stock} left
